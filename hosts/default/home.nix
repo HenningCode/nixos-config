@@ -43,7 +43,7 @@
   };
 
   home.shellAliases = {
-    "rebuild" = "sudo nixos-rebuild switch --flake /home/henning/nixos/#default";
+    rebuild = "sudo nixos-rebuild switch --flake /home/henning/nixos/#default";
   };
 
   # Let Home Manager install and manage itself.
