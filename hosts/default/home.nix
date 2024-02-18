@@ -7,6 +7,7 @@
   imports = [
     ../../modules/home-manager/vscode.nix
     ../../modules/home-manager/lf.nix
+    ../../modules/home-manager/zsh.nix
   ];
 
   # You should not change this value, even if you update Home Manager. If you do

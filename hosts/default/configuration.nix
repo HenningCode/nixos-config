@@ -74,8 +74,6 @@
     jack.enable = true;
   };
 
-  programs.zsh.enable = true;
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.henning = {
     isNormalUser = true;
@@ -83,9 +81,7 @@
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       firefox
-      zsh
     ];
-    shell = pkgs.zsh;
   };
 
   home-manager = {
