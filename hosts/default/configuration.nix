@@ -78,6 +78,7 @@
     packages = with pkgs; [
       firefox
     ];
+    shell = pkgs.zsh;
   };
 
   home-manager = {
