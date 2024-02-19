@@ -8,6 +8,7 @@
     ../../modules/home-manager/vscode.nix
     ../../modules/home-manager/lf.nix
     ../../modules/home-manager/zsh.nix
+    ../../modules/home-manager/direnv.nix
   ];
 
   # You should not change this value, even if you update Home Manager. If you do
