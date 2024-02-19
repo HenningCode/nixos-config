@@ -96,7 +96,6 @@
   environment.systemPackages = with pkgs; [
     vim 
     wget
-    alacritty
     sl
     waybar
     dunst

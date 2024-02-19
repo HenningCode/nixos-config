@@ -9,6 +9,7 @@
     ../../modules/home-manager/lf.nix
     ../../modules/home-manager/zsh.nix
     ../../modules/home-manager/direnv.nix
+    ../../modules/home-manager/alacritty.nix
   ];
 
   # You should not change this value, even if you update Home Manager. If you do
