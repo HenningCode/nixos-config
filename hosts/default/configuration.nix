@@ -67,7 +67,7 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    jack.enable = true;
+    # jack.enable = true;
   };
 
   programs.zsh.enable = true;
@@ -103,6 +103,7 @@
     rofi-wayland
     swww
     networkmanagerapplet
+    fuzzel
   ];
 
   # This value determines the NixOS release from which the default

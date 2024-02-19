@@ -10,6 +10,7 @@
     ../../modules/home-manager/zsh.nix
     ../../modules/home-manager/direnv.nix
     ../../modules/home-manager/alacritty.nix
+    ../../modules/home-manager/fuzzel.nix
   ];
 
   # You should not change this value, even if you update Home Manager. If you do
@@ -23,11 +24,16 @@
   
   # The home.packages option allows you to install Nix packages into your
   # environment.
+
+  fonts.fontconfig.enable = true;
+
   home.packages = with pkgs; [
     hello
     discord
     jetbrains.rust-rover
     neofetch
+    fira-code
+    fira-code-symbols
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
