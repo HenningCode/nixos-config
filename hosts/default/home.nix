@@ -10,7 +10,7 @@
     ../../modules/home-manager/zsh.nix
     ../../modules/home-manager/direnv.nix
     ../../modules/home-manager/alacritty.nix
-    ../../modules/home-manager/fuzzel.nix
+    ../../modules/home-manager/gtk/default.nix
   ];
 
   # You should not change this value, even if you update Home Manager. If you do
@@ -61,13 +61,6 @@
      enable = true;
      userName = "HenningCode";
      userEmail = "henningwilmer@yahoo.de";
-  };
-  
-  gtk = {
-    enable = true;
-    theme.name = "adw-gtk3";
-    cursorTheme.name = "Bibata-Modern-Ice";
-    iconTheme.name = "GruvBoxPlus";
   };
     
 }

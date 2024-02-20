@@ -6,7 +6,8 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
       inputs.home-manager.nixosModules.default
     ];
@@ -83,6 +84,24 @@
     shell = pkgs.zsh;
   };
 
+
+  nixpkgs.config.allowUnfree = true;
+  
+  fonts.packages = with pkgs; [
+    (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" "Iosevka" "FiraCode" ]; })
+    cm_unicode
+    corefonts
+  ];
+
+  # fonts.enableDefaultPackages = true;
+  # fonts.fontconfig = {
+  #   defaultFonts = {
+  #     monospace = [ "JetBrainsMono Nerd Font Mono" ];
+  #     sansSerif = [ "JetBrainsMono Nerd Font" ];
+  #     serif = [ "JetBrainsMono Nerd Font" ];
+  #   };
+  # };
+
   home-manager = {
     # also pass inputs to home-manager modules
     extraSpecialArgs = { inherit inputs; };
@@ -94,7 +113,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim 
+    vim
     wget
     sl
     waybar
@@ -104,6 +123,9 @@
     swww
     networkmanagerapplet
     fuzzel
+    grim
+    swappy
+    slurp
   ];
 
   # This value determines the NixOS release from which the default
