@@ -24,6 +24,7 @@
   
   # The home.packages option allows you to install Nix packages into your
   # environment.
+  colorScheme = inputs.nix-colors.colorSchemes.gruvbox-dark-medium;
 
   fonts.fontconfig.enable = true;
 
