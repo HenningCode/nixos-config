@@ -24,29 +24,31 @@
         style = "Retina";
       };
 
-      colors = {
-        primary.background = "0x1d2021";
-        primary.foreground = "0xd4be98";
+      colors = with config.colorScheme.colors; {
+        primary.background = "0x${base00}";
+        primary.foreground = "0x${base06}";
         normal = {
-          black = "0x32302f";
-          red = "0xea6962";
-          green = "0xa9b665";
-          yellow = "0xd8a657";
-          blue = "0x7daea3";
-          magenta = "0xd3869b";
-          cyan = "0x89b482";
-          white = "0xd4be98";
+          black = "0x${base00}";
+          red = "0x${base08}";
+          green = "0x${base0B}";
+          yellow = "0x${base0A}";
+          blue = "0x${base0D}";
+          magenta = "0x${base0E}";
+          cyan = "0x${base0C}";
+          white = "0x${base06}";
         };
         bright = {
-          black = "0x32302f";
-          red = "0xea6962";
-          green = "0xa9b665";
-          yellow = "0xd8a657";
-          blue = "0x7daea3";
-          magenta = "0xd3869b";
-          cyan = "0x89b482";
-          white = "0xd4be98";
+          black = "0x${base00}";
+          red = "0x${base08}";
+          green = "0x${base0B}";
+          yellow = "0x${base09}";
+          blue = "0x${base0D}";
+          magenta = "0x${base0E}";
+          cyan = "0x${base0C}";
+          white = "0x${base06}";
         };
+        cursor.cursor = "0x${base06}";
+        cursor.text = "0x${base06}";
       };
     };
   };
