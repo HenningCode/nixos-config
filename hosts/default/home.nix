@@ -11,7 +11,7 @@
     ../../modules/home-manager/direnv.nix
     ../../modules/home-manager/alacritty.nix
     ../../modules/home-manager/gtk/default.nix
-    ../../modules/home-manager/waybar.nix
+    ../../modules/home-manager/waybar/default.nix
     inputs.nix-colors.homeManagerModules.default
   ];
 

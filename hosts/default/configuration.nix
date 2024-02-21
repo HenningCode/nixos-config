@@ -108,7 +108,6 @@
     vim
     wget
     sl
-    waybar
     dunst
     libnotify
     rofi-wayland

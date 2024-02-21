@@ -3,7 +3,6 @@
   config,
   ...
 }: let
-  scripts = import ./scripts.nix {inherit pkgs;};
 
   workspaces = {
     format = "{icon}";
@@ -84,17 +83,11 @@
       interval = 10;
     };
 
-    "custom/battery" = {
-      exec = "${scripts.battery}/bin/script";
-      format = " 󰁹 {}";
-      interval = 10;
-    };
-
-    "custom/gpu-usage" = {
-      exec = "nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits";
-      format = "{}";
-      interval = 10;
-    };
+    # "custom/gpu-usage" = {
+    #   exec = "nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits";
+    #   format = "{}";
+    #   interval = 10;
+    # };
 
     "custom/logo" = {
       exec = "echo ' '";
@@ -346,9 +339,9 @@
 in {
   programs.waybar = {
     enable = true;
-    package = pkgs.waybar.overrideAttrs (oldAttrs: {
-      mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
-    });
+    # package = pkgs.waybar.overrideAttrs (oldAttrs: {
+    #   mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
+    # });
     style = css;
     settings = {mainBar = mainWaybarConfig;};
   };
