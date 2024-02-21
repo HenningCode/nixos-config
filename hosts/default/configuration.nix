@@ -49,7 +49,6 @@
   services.printing.enable = true;
 
 
-
   # Enable sound with pipewire.
   sound.enable = true;
   security.rtkit.enable = true;
@@ -117,6 +116,8 @@
     grim
     swappy
     slurp
+    pavucontrol
+    pamixer
   ];
 
   # This value determines the NixOS release from which the default

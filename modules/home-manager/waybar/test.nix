@@ -22,91 +22,25 @@
     mod = "dock";
     layer = "top";
     gtk-layer-shell = true;
-    height = 14;
+    height = 30;
     position = "top";
 
     modules-left = ["custom/logo" "hyprland/workspaces"];
     modules-right = [
       "network"
       "pulseaudio"
+      "custom/date"
       "clock"
-      "tray"
     ];
 
     "wlr/workspaces" = workspaces;
     "hyprland/workspaces" = workspaces;
 
-
     clock = {
-      actions = {
-        on-click-backward = "tz_down";
-        on-click-forward = "tz_up";
-        on-click-right = "mode";
-        on-scroll-down = "shift_down";
-        on-scroll-up = "shift_up";
-      };
-      calendar = {
-        format = {
-          days = "<span color='#ecc6d9'><b>{}</b></span>";
-          months = "<span color='#ffead3'><b>{}</b></span>";
-          today = "<span color='#ff6699'><b><u>{}</u></b></span>";
-          weekdays = "<span color='#ffcc66'><b>{}</b></span>";
-          weeks = "<span color='#99ffdd'><b>W{}</b></span>";
-        };
-        mode = "year";
-        mode-mon-col = 3;
-        on-click-right = "mode";
-        on-scroll = 1;
-        weeks-pos = "right";
-      };
-      format = "󰥔 {:%H:%M}";
-      format-alt = "󰥔 {:%A, %B %d, %Y (%R)} ";
-      tooltip-format = ''
-        <span size='9pt' font='WenQuanYi Zen Hei Mono'>{calendar}</span>'';
+      format = "  {:%H:%M} ";
+      tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
     };
 
-    cpu = {
-      format = "󰍛 {usage}%";
-      format-alt = "{icon0}{icon1}{icon2}{icon3}";
-      format-icons = ["▁" "▂" "▃" "▄" "▅" "▆" "▇" "█"];
-      interval = 10;
-    };
-
-    # "custom/gpu-usage" = {
-    #   exec = "nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits";
-    #   format = "{}";
-    #   interval = 10;
-    # };
-
-    "custom/logo" = {
-      exec = "echo ' '";
-      format = "{}";
-    };
-
-    "hyprland/window" = {
-      format = "  {}";
-      rewrite = {
-        "(.*) — Mozilla Firefox" = "$1 󰈹";
-        "(.*)Steam" = "Steam 󰓓";
-      };
-      separate-outputs = true;
-    };
-
-    "hyprland/language" = {
-      format = " {}";
-      format-uk = "державна";
-      format-en = "english";
-      format-ru = "русский";
-    };
-
-    memory = {
-      format = "󰾆 {percentage}%";
-      format-alt = "󰾅 {used}GB";
-      interval = 30;
-      max-length = 10;
-      tooltip = true;
-      tooltip-format = " {used:0.1f}GB/{total:0.1f}GB";
-    };
 
     network = {
       format-disconnected = " Disconnected";
@@ -138,10 +72,6 @@
       tooltip-format = "{icon} {desc} {volume}%";
     };
 
-    tray = {
-      icon-size = 15;
-      spacing = 5;
-    };
   };
 
   css = ''
@@ -212,6 +142,10 @@
         margin: 3px 3px 3px 3px;
     }
 
+    #custom-battery {
+        color: @green_1
+    }
+
     /* resource monitor block */
 
     #cpu {
@@ -277,10 +211,17 @@
     }
 
     #pulseaudio {
-        color: @red_1;
+        color: @purple_1;
         padding-left: 4px;
         padding-right: 4px;
     }
+
+    #pulseaudio.microphone {
+        color: @red_1;
+        padding-left: 0px;
+        padding-right: 4px;
+    }
+
 
     /* system tray block */
     #custom-mode {
@@ -306,9 +247,9 @@
 in {
   programs.waybar = {
     enable = true;
-    package = pkgs.waybar.overrideAttrs (oldAttrs: {
-      mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
-    });
+    # package = pkgs.waybar.overrideAttrs (oldAttrs: {
+    #   mesonFlags = oldAttrs.mesonFlags ++ ["-Dexperimental=true"];
+    # });
     style = css;
     settings = {mainBar = mainWaybarConfig;};
   };
